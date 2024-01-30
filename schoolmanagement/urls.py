@@ -81,3 +81,9 @@ urlpatterns = [
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
 ]
+from django.conf import settings
+from django.conf.urls.static import static
+
+def static_urlpatterns():
+    return static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static_urlpatterns()
